@@ -302,9 +302,20 @@ body {
 }
 
 .outline-text {
-    color: transparent;
+    color: white; /* Fallback color */
     -webkit-text-stroke: 2px var(--gray-900);
-    text-stroke: 2px var(--gray-900);
+}
+
+/* If the browser doesn't support text-stroke, use shadows */
+@supports not (-webkit-text-stroke: 2px red) {
+    .outline-text {
+        color: transparent;
+        text-shadow: 
+            -1px -1px 0 var(--gray-900),  
+             1px -1px 0 var(--gray-900),
+            -1px  1px 0 var(--gray-900),
+             1px  1px 0 var(--gray-900);
+    }
 }
 
 .hero-description {

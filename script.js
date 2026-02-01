@@ -1,11 +1,9 @@
 // ==========================================
 // Emailjs
 // ==========================================
-// (function() {
-    emailjs.init({
-        publicKey: "K71H5LJH8vSVzeT1J", // Make sure to paste your actual key here!
-    });
-})();
+emailjs.init({
+    publicKey: "K71H5LJH8vSVzeT1J", 
+});
 
 // ==========================================
 // Modern 2026 Interactions

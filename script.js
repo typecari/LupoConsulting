@@ -159,25 +159,20 @@ contactForm?.addEventListener('submit', async (e) => {
     submitBtn.disabled = true;
     
     try {
-        // Simulate API call (replace with your backend)
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        // Real EmailJS call replacing the simulation
+        await emailjs.sendForm('service_0vjt413', 'template_sibw5gg', contactForm);
         
-        console.log('Form submitted:', data);
+        console.log('Form submitted successfully');
         
         // Show success
         contactForm.style.display = 'none';
         successMessage.classList.add('show');
         
-        // Optional: Send to backend
-        // await fetch('/api/contact', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(data)
-        // });
-        
     } catch (error) {
-        console.error('Error:', error);
-        alert('Something went wrong. Please try again or contact us directly.');
+        console.error('EmailJS Error:', error);
+        alert('Oops! Something went wrong. Please try again.');
+        
+        // Reset button if it fails
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
     }

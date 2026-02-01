@@ -647,25 +647,22 @@ body {
 }
 
 .service-hover {
-    display: none; /* This hides it completely */
     position: absolute;
     bottom: 40px;
     right: 40px;
-    display: flex;
+    display: flex; /* Kept for alignment, but hidden via opacity */
     align-items: center;
     gap: 8px;
     font-size: 14px;
     font-weight: 600;
     color: var(--primary);
+    
+    /* Logic for hiding/showing */
     opacity: 0;
+    visibility: hidden; /* This makes it unclickable while hidden */
     transform: translateY(10px);
     transition: var(--transition);
     z-index: 3;
-}
-
-.service-box:hover .service-hover {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 /* ==========================================

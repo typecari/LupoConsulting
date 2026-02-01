@@ -636,6 +636,7 @@ body {
 }
 
 .service-hover {
+    display: none; /* This hides it completely */
     position: absolute;
     bottom: 40px;
     right: 40px;

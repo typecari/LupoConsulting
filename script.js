@@ -157,20 +157,21 @@ contactForm?.addEventListener('submit', async (e) => {
     submitBtn.disabled = true;
     
     try {
-        // Real EmailJS call replacing the simulation
+        // This 'contactForm' variable refers to the document.getElementById('contactForm') defined above
         await emailjs.sendForm('service_0vjt413', 'template_sibw5gg', contactForm);
         
         console.log('Form submitted successfully');
         
-        // Show success
+        // Hide form and show success card
         contactForm.style.display = 'none';
+        successMessage.style.display = 'block'; 
         successMessage.classList.add('show');
         
     } catch (error) {
         console.error('EmailJS Error:', error);
-        alert('Oops! Something went wrong. Please try again.');
+        // This pulls the error message from EmailJS if it fails (like a wrong ID)
+        alert('Oops! Something went wrong: ' + (error.text || 'Please try again.'));
         
-        // Reset button if it fails
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
     }
